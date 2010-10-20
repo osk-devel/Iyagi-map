@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:drawable/toast_frame">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+            <ImageView
+            	android:id="@+id/message_image"
+                android:layout_width="48px"
+                android:layout_height="48px"
+                android:src="@drawable/sample_thumb_2"
+                />
+
+            <TextView
+                android:id="@+id/message_text"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="6dip"
+                />
+
+    </LinearLayout>
+</FrameLayout>
