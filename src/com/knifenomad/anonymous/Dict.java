@@ -3,6 +3,9 @@ package com.knifenomad.anonymous;
 import org.json.JSONObject;
 import org.json.JSONException;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+
 public class Dict extends JSONObject{
 	
 	public Dict()
@@ -25,10 +28,24 @@ public class Dict extends JSONObject{
 		}
 		return obj;
 	}
+
+	public Dict getDict(String name)
+	{
+		JSONObject obj = null;
+		obj = (JSONObject) get(name);
+		return Dict.decode(obj.toString());
+	}
+	
 	
 	public String getString(String name)
 	{
-		return (String) get(name);
+		String str = (String) get(name);
+		try {
+			str = URLDecoder.decode(str, "UTF8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		return str;
 	}
 	
 	public Dict put(String name, Object value)
@@ -60,6 +77,7 @@ public class Dict extends JSONObject{
 			decoded = new Dict(json);
 		} catch (JSONException e) {
 			e.printStackTrace();
+			decoded = new Dict();
 		}
 		return decoded;
 	}	

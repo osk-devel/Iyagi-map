@@ -3,18 +3,19 @@
       package="com.knifenomad.anonymous"
       android:versionCode="1"
       android:versionName="1.0">
-    <application android:name=".AnonymousApplication" android:icon="@drawable/icon" android:label="@string/app_name">
+    <application android:name=".app.AnonymousApplication" android:icon="@drawable/icon" android:label="@string/app_name" android:debuggable="true">
     	<uses-library android:name="com.google.android.maps" />
-        <activity android:name=".AnonymousSplashActivity"
+        <activity android:name=".app.AnonymousSplashActivity"
                   android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    <activity android:name=".AnonymousMainActivity" />
-    <activity android:name=".AnonymousLoginActivity" />
-	<activity android:name=".AnonymousMapActivity" />
+    <activity android:name=".app.AnonymousMainActivity" />
+    <activity android:name=".app.AnonymousLoginActivity" />
+	<activity android:name=".app.AnonymousMapActivity" />
+	<activity android:name=".app.AnonymousSignupActivity" />
     </application>
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"></uses-permission>

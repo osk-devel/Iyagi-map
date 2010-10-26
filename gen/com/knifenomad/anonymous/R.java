@@ -45,27 +45,36 @@ public final class R {
         public static final int splash=0x7f02001f;
     }
     public static final class id {
-        public static final int LinearLayout01=0x7f050008;
-        public static final int email=0x7f050000;
-        public static final int mapView=0x7f050003;
-        public static final int message_image=0x7f050005;
-        public static final int message_text=0x7f050006;
-        public static final int password=0x7f050001;
-        public static final int register=0x7f050007;
-        public static final int signup=0x7f050002;
-        public static final int zoom=0x7f050004;
+        public static final int LinearLayout01=0x7f06000b;
+        public static final int bodycontent=0x7f060001;
+        public static final int edit=0x7f060003;
+        public static final int email=0x7f060004;
+        public static final int logo=0x7f060000;
+        public static final int mapView=0x7f060007;
+        public static final int message_image=0x7f060008;
+        public static final int message_text=0x7f060009;
+        public static final int password=0x7f060005;
+        public static final int register=0x7f06000a;
+        public static final int signup=0x7f060006;
+        public static final int title=0x7f060002;
+    }
+    public static final class integer {
+        public static final int font_big=0x7f040001;
+        public static final int font_small=0x7f040000;
     }
     public static final class layout {
-        public static final int login=0x7f030000;
-        public static final int main=0x7f030001;
-        public static final int map=0x7f030002;
-        public static final int message_toast=0x7f030003;
-        public static final int signup=0x7f030004;
-        public static final int splash=0x7f030005;
+        public static final int cell_image_title_desc=0x7f030000;
+        public static final int cell_title_edittext=0x7f030001;
+        public static final int login=0x7f030002;
+        public static final int main=0x7f030003;
+        public static final int map=0x7f030004;
+        public static final int message_toast=0x7f030005;
+        public static final int signup=0x7f030006;
+        public static final int splash=0x7f030007;
     }
     public static final class string {
-        public static final int app_name=0x7f040001;
-        public static final int hello=0x7f040000;
-        public static final int register=0x7f040002;
+        public static final int app_name=0x7f050001;
+        public static final int hello=0x7f050000;
+        public static final int register=0x7f050002;
     }
 }

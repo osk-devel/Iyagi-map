@@ -1,6 +1,7 @@
 package com.knifenomad.anonymous;
 
 import android.content.Context;
+import android.app.AlertDialog;
 import android.view.View;
 import android.widget.ImageView.ScaleType;
 import android.widget.TextView;
@@ -8,9 +9,28 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import org.json.JSONObject;
 
+import com.knifenomad.anonymous.app.AnonymousApplication;
+
+import android.app.ProgressDialog;
+
+import android.content.DialogInterface;
+
 //         Util.showToast(AnonymousLoginActivity.this, "Toast!", 0);
 
 public class Global {
+	
+	public static void alert(Context context, String msg) {
+		AlertDialog dialog = new AlertDialog.Builder(context)
+			.setTitle("알림")
+			.setMessage(msg)
+			.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+				
+				public void onClick(DialogInterface dialog, int which) {
+					// TODO Auto-generated method stub
+					dialog.dismiss();
+				}
+			}).show();
+	}
 	
 	public static Dict getDict(String name)
 	{
@@ -28,6 +48,12 @@ public class Global {
 	{
 		AnonymousApplication context = AnonymousApplication.getContext();
 		context.setGlobal(name, obj);
+	}
+	
+	public static ProgressDialog showLoading(Context context)
+	{
+		ProgressDialog dialog = ProgressDialog.show(context, "", "Loading....", true);
+		return dialog;
 	}
 	
 	public static void showLongToast(Context context, String text)
