@@ -65,29 +65,34 @@ public class AnonymousMapActivity extends MapActivity implements LocationListene
         mLocationManager	= (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         mapView				= (MapView) findViewById(R.id.mapView);
         mapController		= mapView.getController(); 
-        
-        mapView.invalidate();
+        mapController.setZoom(17);
+        Location location = mLocationManager.getLastKnownLocation(getBestProvider());
+        updateMyLocation(location);
     }
     
     public void updateMyLocation(Location location) {
-    	Log.v("MapActivitiy", "update");
-    	double lat = location.getLatitude();
-    	double lng = location.getLongitude();
-    	double alt = location.getAltitude();
- 
-        GeoPoint point = new GeoPoint(
-            (int) (lat * 1E6), 
-            (int) (lng * 1E6));
-
-        //---Add a location marker---
-        Drawable marker = this.getResources().getDrawable(R.drawable.map_marker);
-        MapOverlay overlay = new MapOverlay(marker);
-        overlay.addEvent(lat, lng, "I'm here", "My position");
-        List<Overlay> listOfOverlays = mapView.getOverlays();
-        listOfOverlays.clear();
-        listOfOverlays.add(overlay);
-        mapController.animateTo(point);
-        mapController.setZoom(17);
+    	if(location != null)
+    	{
+	    	Log.v("MapActivitiy", "update");
+	    	double lat = location.getLatitude();
+	    	double lng = location.getLongitude();
+	    	double alt = location.getAltitude();
+	 
+	        GeoPoint point = new GeoPoint(
+	            (int) (lat * 1E6), 
+	            (int) (lng * 1E6));
+	
+	        //---Add a location marker---
+	        Drawable marker = this.getResources().getDrawable(R.drawable.map_marker);
+	        MapOverlay overlay = new MapOverlay(marker);
+	        overlay.addEvent(lat, lng, "I'm here", "My position");
+	        List<Overlay> listOfOverlays = mapView.getOverlays();
+	        listOfOverlays.clear();
+	        listOfOverlays.add(overlay);
+	        mapController.animateTo(point);
+	        mapView.invalidate();
+	        //mLocationManager.requestLocationUpdates(getBestProvider(), 2000, 10, AnonymousMapActivity.this);
+    	}
     }
     
     // LocationListener implementation start
@@ -96,9 +101,11 @@ public class AnonymousMapActivity extends MapActivity implements LocationListene
     }
     
     public void onProviderEnabled(String provider) {
+    	Log.v("MapActivitiy", "GPS enabled");
     }
     
     public void onProviderDisabled(String provider) {
+    	Log.v("MapActivitiy", "GPS disabled");
     }
     
 	public void onStatusChanged(String provider, int status, Bundle extras) {
@@ -115,7 +122,7 @@ public class AnonymousMapActivity extends MapActivity implements LocationListene
     public void onPause() {
     	super.onPause();
     	Log.v("MapActivitiy", "Pause");
-    	mLocationManager.removeUpdates(this);
+    	mLocationManager.removeUpdates(AnonymousMapActivity.this);
     	
     }
     
@@ -123,6 +130,6 @@ public class AnonymousMapActivity extends MapActivity implements LocationListene
     public void onResume() {
     	super.onResume();
     	Log.v("MapActivitiy", "Resume");
-    	mLocationManager.requestLocationUpdates(getBestProvider(), 2000, 10, this);
+    	mLocationManager.requestLocationUpdates(getBestProvider(), 2000, 10, AnonymousMapActivity.this);
     }
 }
