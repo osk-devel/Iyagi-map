@@ -7,7 +7,7 @@ public class Apis {
 	
 	public final static String BASEURL = "http://175.122.253.4:33333/cgi-bin/";
 	
-	public static String call(String url, Dict params) {
+	public static String call(String url, JDict params) {
 		Iterator it = params.keys();
 		
 		if (it.hasNext()) url += "?";
@@ -22,7 +22,7 @@ public class Apis {
 	}
 	
 	public static String call(String url, String json) {
-		Dict params = Dict.decode(json);
+		JDict params = JDict.decode(json);
 		return call(url, params);
 	}
 }

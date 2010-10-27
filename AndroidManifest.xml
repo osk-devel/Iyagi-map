@@ -12,10 +12,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    <activity android:name=".app.AnonymousMainActivity" />
-    <activity android:name=".app.AnonymousLoginActivity" />
-	<activity android:name=".app.AnonymousMapActivity" />
-	<activity android:name=".app.AnonymousSignupActivity" />
+	    <activity android:name=".app.AnonymousMainActivity" />
+	    <activity android:name=".app.AnonymousLoginActivity" />
+		<activity android:name=".app.AnonymousMapActivity" />
+		<activity android:name=".app.AnonymousSignupActivity" />
     </application>
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"></uses-permission>

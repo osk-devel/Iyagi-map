@@ -1,6 +1,6 @@
 package com.knifenomad.anonymous.app;
 
-import com.knifenomad.anonymous.Dict;
+import com.knifenomad.anonymous.*;
 
 import android.app.Application;
 
@@ -13,11 +13,11 @@ public class AnonymousApplication extends Application {
 	// and so on...
 	
 	private static AnonymousApplication instance;
-	private Dict Globals; 
+	private JDict Globals; 
 
     public AnonymousApplication() {
         instance = this;
-        Globals  = new Dict();
+        Globals  = new JDict();
     }
 
     public static AnonymousApplication getContext() {

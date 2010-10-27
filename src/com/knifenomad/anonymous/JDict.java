@@ -6,14 +6,14 @@ import org.json.JSONException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
-public class Dict extends JSONObject{
+public class JDict extends JSONObject{
 	
-	public Dict()
+	public JDict()
 	{
 		super();
 	}
 	
-	public Dict(String json) throws JSONException
+	public JDict(String json) throws JSONException
 	{
 		super(json);
 	}
@@ -29,11 +29,11 @@ public class Dict extends JSONObject{
 		return obj;
 	}
 
-	public Dict getDict(String name)
+	public JDict getDict(String name)
 	{
 		JSONObject obj = null;
 		obj = (JSONObject) get(name);
-		return Dict.decode(obj.toString());
+		return JDict.decode(obj.toString());
 	}
 	
 	
@@ -48,7 +48,7 @@ public class Dict extends JSONObject{
 		return str;
 	}
 	
-	public Dict put(String name, Object value)
+	public JDict put(String name, Object value)
 	{
 		try{
 			super.put(name, value);
@@ -58,26 +58,26 @@ public class Dict extends JSONObject{
 		return this;
 	}
 	
-	public Dict set(String name, Object value)
+	public JDict set(String name, Object value)
 	{
 		return put(name, value);
 	}
 	
-	public static String encode(Dict dict)
+	public static String encode(JDict dict)
 	{
 		String encoded=null;
 		encoded = dict.toString();
 		return encoded;
 	}
 	
-	public static Dict decode(String json)
+	public static JDict decode(String json)
 	{
-		Dict decoded = null;
+		JDict decoded = null;
 		try {
-			decoded = new Dict(json);
+			decoded = new JDict(json);
 		} catch (JSONException e) {
 			e.printStackTrace();
-			decoded = new Dict();
+			decoded = new JDict();
 		}
 		return decoded;
 	}	

@@ -19,6 +19,12 @@ import android.content.DialogInterface;
 
 public class Global {
 	
+	public static void alert(Context context, String title, String msg) {
+		AlertDialog dialog = new AlertDialog.Builder(context)
+			.setTitle(title)
+			.setMessage(msg).show();
+	}
+	
 	public static void alert(Context context, String msg) {
 		AlertDialog dialog = new AlertDialog.Builder(context)
 			.setTitle("¾Ë¸²")
@@ -32,10 +38,10 @@ public class Global {
 			}).show();
 	}
 	
-	public static Dict getDict(String name)
+	public static JDict getDict(String name)
 	{
 		AnonymousApplication context = AnonymousApplication.getContext();
-		return (Dict) context.getGlobal(name);
+		return (JDict) context.getGlobal(name);
 	}
 	
 	public static Object get(String name)

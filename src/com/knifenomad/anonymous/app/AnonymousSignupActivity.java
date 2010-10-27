@@ -64,7 +64,7 @@ public class AnonymousSignupActivity extends Activity {
     	    String passw   = Cell.getCellText(cell3, R.id.edit);
     	    String confirm = Cell.getCellText(cell4, R.id.edit);
     	    
-    	    Dict params = new Dict();
+    	    JDict params = new JDict();
     	    params.put("email", email);
     	    params.put("nick" , nick);
     	    params.put("pwd"  , HashString.digest(email+passw).toUpperCase());

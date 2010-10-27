@@ -1,5 +1,4 @@
 package com.knifenomad.anonymous.service;
 
-public class AnonymousLocationService {
-	
-}
+import android.location.LocationManager;
+

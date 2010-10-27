@@ -1,13 +1,6 @@
 package com.knifenomad.anonymous.app;
 
-import com.knifenomad.anonymous.Apis;
-import com.knifenomad.anonymous.Dict;
-import com.knifenomad.anonymous.Global;
-import com.knifenomad.anonymous.HashString;
-import com.knifenomad.anonymous.HttpData;
-import com.knifenomad.anonymous.HttpRequest;
-import com.knifenomad.anonymous.R;
-
+import com.knifenomad.anonymous.*;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -43,12 +36,12 @@ public class AnonymousLoginActivity extends Activity {
     	String hashed = null;
     	String url = null;
     	hashed = HashString.digest(email+password).toUpperCase();
-    	Dict params = new Dict();
+    	JDict params = new JDict();
     	params.set("auto",  "0");
     	params.set("email", email);
     	params.set("pwd",   hashed);
     	String data = Apis.call("login.py", params);
-    	Dict decoded = Dict.decode(data);
+    	JDict decoded = JDict.decode(data);
     	auth_string = decoded.getString("msg");
     	if (auth_string.equals("OK")) {
     		Global.set("user", decoded);
