@@ -40,11 +40,14 @@ public class AnonymousLoginActivity extends Activity {
     	params.set("auto",  "0");
     	params.set("email", email);
     	params.set("pwd",   hashed);
-    	String data = Apis.call("login.py", params);
+    	String data = Apis.call(AnonymousLoginActivity.this, "login.py", params);
     	JDict decoded = JDict.decode(data);
     	auth_string = decoded.getString("msg");
+    	JDict user  = decoded.getDict("rs");
     	if (auth_string.equals("OK")) {
-    		Global.set("user", decoded);
+    		user.put("gid"  , "");
+    		user.put("gname", "");
+    		Global.set("user", user);
     		return true;
     	}
     	return false;

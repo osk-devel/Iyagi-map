@@ -1,6 +1,7 @@
 package com.knifenomad.anonymous;
 
 import org.json.JSONObject;
+import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.io.UnsupportedEncodingException;
@@ -29,6 +30,17 @@ public class JDict extends JSONObject{
 		return obj;
 	}
 
+	public double getDouble(String name)
+	{
+		double number = -1.0;
+		try {
+			number = super.getDouble(name);
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		return number;
+	}
+	
 	public JDict getDict(String name)
 	{
 		JSONObject obj = null;
@@ -36,6 +48,12 @@ public class JDict extends JSONObject{
 		return JDict.decode(obj.toString());
 	}
 	
+	public JList getList(String name)
+	{
+		JSONArray obj = null;
+		obj = (JSONArray) get(name);
+		return JList.decode(obj.toString());
+	}
 	
 	public String getString(String name)
 	{

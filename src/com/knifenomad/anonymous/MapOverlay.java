@@ -3,6 +3,7 @@ package com.knifenomad.anonymous;
 import java.util.ArrayList;
 
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.ItemizedOverlay;
@@ -23,6 +24,7 @@ public class MapOverlay extends ItemizedOverlay<OverlayItem> {
 	
 	public MapOverlay(Drawable defaultMarker, Context context) {
 		  super(defaultMarker);
+		  mOverlays = new ArrayList<OverlayItem>();
 		  mContext = context;
 	}
 	
@@ -38,7 +40,7 @@ public class MapOverlay extends ItemizedOverlay<OverlayItem> {
 		}
 	}
 	
-	public void addEvent(Double lat, Double lng, String msg, String title) {
+	public void addEvent(double lat, double lng, String msg, String title) {
 		
 		GeoPoint point = new GeoPoint(
                 (int) (lat * 1E6), 
@@ -48,25 +50,29 @@ public class MapOverlay extends ItemizedOverlay<OverlayItem> {
 		addOverlay(item);
 	}
 	
-	public void addEvent(Double lat, Double lng, String msg, String title, int imgsrc) {
+	public void addEvent(double lat, double lng, String msg, String title, int imgsrc) {
 		
 		GeoPoint point = new GeoPoint(
                 (int) (lat * 1E6), 
                 (int) (lng * 1E6));
+
 		
 		OverlayItem item = new OverlayItem(point, title, msg);
 		Drawable flag = mContext.getResources().getDrawable(imgsrc);
+		
 		flag.setBounds(0, 0, flag.getIntrinsicWidth(), flag.getIntrinsicHeight());
 		item.setMarker(flag);
 		addOverlay(item);
 	}
 	
 	public void addEvent(JDict dict) {
-		double lat	 = Double.parseDouble(dict.getString("latitude"));
-		double lng	 = Double.parseDouble(dict.getString("longitude"));
+		
+		double lat	 = dict.getDouble("latitude");
+		double lng	 = dict.getDouble("longitude");
 		String msg	 = dict.getString("msg");
 		String title = dict.getString("nickname");
-		addEvent(lat, lng, msg, title, android.R.drawable.presence_offline);
+
+		addEvent(lat, lng, msg, title, R.drawable.pin);
 	}
 	
 	@Override

@@ -14,8 +14,10 @@
         </activity>
 	    <activity android:name=".app.AnonymousMainActivity" />
 	    <activity android:name=".app.AnonymousLoginActivity" />
-		<activity android:name=".app.AnonymousMapActivity" />
-		<activity android:name=".app.AnonymousSignupActivity" />
+	    <activity android:name=".app.AnonymousSignupActivity" />
+		<activity android:name=".app.map.AnonymousMapActivity" />
+		<activity android:name=".app.cnf.AnonymousConfigActivity" />
+		<activity android:name=".app.msg.AnonymousMessageActivity" />
     </application>
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"></uses-permission>

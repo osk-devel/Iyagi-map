@@ -68,7 +68,7 @@ public class AnonymousSignupActivity extends Activity {
     	    params.put("email", email);
     	    params.put("nick" , nick);
     	    params.put("pwd"  , HashString.digest(email+passw).toUpperCase());
-    	    Apis.call("join.py", params);
+    	    Apis.call(AnonymousSignupActivity.this, "join.py", params);
     	    finish();
     	}
     };

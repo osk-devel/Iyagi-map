@@ -3,6 +3,9 @@ package com.knifenomad.anonymous.app;
 import com.knifenomad.anonymous.R;
 import com.knifenomad.anonymous.R.drawable;
 import com.knifenomad.anonymous.R.layout;
+import com.knifenomad.anonymous.app.cnf.AnonymousConfigActivity;
+import com.knifenomad.anonymous.app.map.AnonymousMapActivity;
+import com.knifenomad.anonymous.app.msg.AnonymousMessageActivity;
 
 import android.app.TabActivity;
 import android.content.res.Resources;
@@ -34,13 +37,13 @@ public class AnonymousMainActivity extends TabActivity {
 	                  .setContent(intent);
 	    tabHost.addTab(spec);  
 	
-	    intent = new Intent().setClass(this, AnonymousMapActivity.class);
+	    intent = new Intent().setClass(this, AnonymousConfigActivity.class);
 	    spec = tabHost.newTabSpec("Settings").setIndicator("Settings",
 	            res.getDrawable(R.drawable.ic_menu_setting))
 	        .setContent(intent);
 	    tabHost.addTab(spec);
 	    
-	    intent = new Intent().setClass(this, AnonymousMapActivity.class);
+	    intent = new Intent().setClass(this, AnonymousMessageActivity.class);
 	    spec = tabHost.newTabSpec("message").setIndicator("Messages",
 	            res.getDrawable(R.drawable.ic_menu_msg))
 	        .setContent(intent);

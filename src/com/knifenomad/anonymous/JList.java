@@ -2,6 +2,7 @@ package com.knifenomad.anonymous;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -31,8 +32,8 @@ public class JList extends JSONArray{
 
 	public JDict getDict(int idx)
 	{
-		JDict obj = null;
-		obj = (JDict) get(idx);
+		JSONObject obj = null;
+		obj = (JSONObject) get(idx);
 		return JDict.decode(obj.toString());
 	}
 	
